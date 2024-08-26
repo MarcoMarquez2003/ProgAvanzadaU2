@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style type="text/css">
+        body{
+            background-color: gray;
+        }
+        canvas{
+            background-color: rgb(0, 235, 252);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="600"></canvas>
+    <script type="text/javascript">
+        const myCanvas=document.getElementById("myCanvas");
+
+        const ctx = myCanvas.getContext("2d");
+        let figura = 0;
+        let pulsar = false;
+
+        function randomColor() {
+            return `rgba(${Math.floor(Math.random() * 200)}, ${Math.floor(Math.random() * 200)}, ${Math.floor(Math.random() * 200)}, 0.6)`;
+        }
+
+        function drawCircle(x, y, color) {
+            ctx.beginPath();
+            ctx.arc(x, y, 50, 0, 2 * Math.PI);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        function drawSquare(x, y, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x - 50, y - 50, 100, 100);
+            ctx.strokeRect(x - 50, y - 50, 100, 100);
+        }
+
+        myCanvas.addEventListener("click", function (e) {
+            const color = randomColor();
+            if (figura === 0) {
+                drawCircle(e.offsetX, e.offsetY, color);
+                figura = 1;
+            } else {
+                drawSquare(e.offsetX, e.offsetY, color);
+                figura = 0;
+            }
+        });
+
+        myCanvas.addEventListener("mouseover", function (e) {
+            if (presionado) {
+                ctx.fillStyle = "black";
+                ctx.fillRect(e.offsetX, e.offsetY, 4, 4);
+            }
+        });
+
+        myCanvas.addEventListener("mousedown", function () {
+            pulsar = true;
+        });
+
+        myCanvas.addEventListener("mouseup", function () {
+            pulsar = false;
+        });
+    </script>
+</body>
+</html>
