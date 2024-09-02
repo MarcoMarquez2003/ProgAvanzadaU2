@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+        canvas {
+            background-color: #001b6f;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="500"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const img = new Image()
+        img.src = "sonic2.webp";
+        img.onload= function() {
+        ctx.drawImage(img, 10, 275,100,100);
+    };
+    
+        ctx.fillStyle = 'brown';
+        ctx.fillRect(0, 400, 600, 100);
+
+        
+        for (let y = 470; y >= 410; y -= 30) {
+            for (let x = 0; x <= 540; x += 60) {
+                ctx.fillStyle = 'SaddleBrown';
+                ctx.fillRect(x, y, 30, 30);
+            }
+        }
+        for (let x = 30; x <= 570; x += 60) {
+            ctx.fillRect(x, 440, 30, 30);
+        }
+
+        ctx.fillStyle = 'green';
+        ctx.fillRect(0, 385, 600, 15);
+        ctx.fillStyle = 'Limegreen';
+        ctx.fillRect(0, 370, 600, 15);
+        ctx.fillStyle = 'Lime';
+        ctx.fillRect(0, 355, 600, 15);
+
+        ctx.fillStyle = 'Brown';
+        ctx.fillRect(360, 155, 15, 200);
+
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.arc(360, 100, 50, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(360, 80, 70, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Dibuja la flor
+        const petalColors = ['red', 'orange', 'pink', 'purple'];
+        petalColors.forEach((color, i) => {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(525 + Math.cos(i * Math.PI / 2) * 20, 260 + Math.sin(i * Math.PI / 2) * 20, 10, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+      
+        ctx.fillStyle = 'yellow';
+        ctx.beginPath();
+        ctx.arc(525, 260, 10, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = 'green';
+        ctx.fillRect(520, 294, 8, 60);
+
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = 2;
+        [60, 160, 260].forEach(x => {
+            ctx.beginPath();
+            ctx.arc(x, 320, 20, 0, Math.PI * 2);
+            ctx.stroke();
+        });
+    </script>
+</body>
+</html
