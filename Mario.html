@@ -11,22 +11,33 @@
         canvas{
             background-color: rgb(0, 235, 252);
         }
+
     </style>
 </head>
 <body>
     <canvas id="myCanvas" width="800" height="500"></canvas>
     <script type="text/javascript">
         const myCanvas=document.getElementById("myCanvas");
+        
 
         const ctx = myCanvas.getContext("2d");
-        
+        const img = new Image()
+        img.src = "Mario.webp";
+        img.onload= function() {
+        ctx.drawImage(img, 300, 375,150,150);
+    };
+        const img2 = new Image()
+        img2.src = "Planta.webp";
+        img2.onload= function() {
+        ctx.drawImage(img2, 555, 230,100,100);
+    };
         ctx.fillStyle = "rgba(0, 0, 0, 0.8)"; 
         ctx.fillRect(90, 250, 150, 250);
 
         ctx.fillStyle="purple";
         ctx.fillRect(75,250,150,250)
 
-        
+
 
         ctx.fillStyle="green";
         ctx.fillRect(575,380,70,120)
@@ -34,24 +45,13 @@
         ctx.fillStyle="green";
         ctx.fillRect(535,330,150,50)
 
-        
+
         ctx.fillStyle = "rgba(0, 0, 0, 0.8)"; 
         ctx.fillRect(15, 300, 150, 200);
 
         ctx.fillStyle="red";
         ctx.fillRect(0,300,150,200)
 
-        
-        const img = new Image()
-        img.src = "Mario.png";
-        img.onload= function() {
-        ctx.drawImage(img, 300, 400,100,100);
-    };
-        const img2 = new Image()
-        img2.src = "planta carnivora.jpeg";
-        img2.onload= function() {
-        ctx.drawImage(img2, 555, 230,100,100);
-    };
 
         ctx.fillStyle = "rgba(0, 0, 0, 0.8)"; 
         ctx.fillRect(85, 100, 50, 50);
@@ -62,7 +62,7 @@
         ctx.fillRect(140, 100, 50, 50);
         ctx.fillStyle="orange";
         ctx.fillRect(130,100,50,50)
-        
+
         ctx.fillStyle = "rgba(0, 0, 0, 0.8)"; 
         ctx.fillRect(195, 100, 50, 50);
         ctx.fillStyle="orange";
@@ -72,7 +72,7 @@
         ctx.fillRect(335, 215, 50, 50);
         ctx.fillStyle="orange";
         ctx.fillRect(325,215,50,50)
-        
+
         ctx.fillStyle = "rgba(0, 0, 0, 0.8)"; 
         ctx.fillRect(390, 215, 50, 50);
         ctx.fillStyle="orange";
