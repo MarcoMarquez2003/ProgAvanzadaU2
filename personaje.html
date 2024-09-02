@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Bob Esponja</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+        canvas {
+            background-color: rgb(0, 235, 252);
+
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="500"></canvas>
+    <script>
+        const myCanvas = document.getElementById("myCanvas");
+        const ctx = myCanvas.getContext("2d");
+
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(300, 200, 200, 200);
+
+        
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.arc(350, 250, 30, 0, 2 * Math.PI); 
+        ctx.arc(450, 250, 30, 0, 2 * Math.PI); 
+        ctx.fill();
+
+        ctx.fillStyle = 'blue';
+        ctx.beginPath();
+        ctx.arc(350, 250, 15, 0, 2 * Math.PI); 
+        ctx.arc(450, 250, 15, 0, 2 * Math.PI); 
+        ctx.fill();
+
+        
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.arc(400, 300, 40, 0, Math.PI); 
+        ctx.fill();
+        
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(400, 300, 35, 0, Math.PI); 
+        ctx.fill();
+
+    
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.arc(400, 300, 40, 0, Math.PI); 
+        ctx.fill();
+        
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(400, 300, 35, 0, Math.PI); 
+        ctx.fill();
+
+        ctx.fillStyle = 'white';
+        ctx.fillRect(385, 290, 10, 30); 
+        ctx.fillRect(405, 290, 10, 30); 
+
+        
+        ctx.fillStyle = 'brown';
+        ctx.fillRect(300, 400, 200, 30); 
+
+        ctx.fillStyle = 'white';
+        ctx.fillRect(300, 430, 200, 30); 
+
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.moveTo(400, 430);
+        ctx.lineTo(420, 460);
+        ctx.lineTo(380, 460);
+        ctx.closePath();
+        ctx.fill(); 
+
+        
+        ctx.fillStyle = 'orange';
+        ctx.fillRect(340, 430, 20, 60); 
+        ctx.fillRect(440, 430, 20, 60); 
+
+        ctx.fillStyle = 'black';
+        ctx.fillRect(340, 490, 20, 10); 
+        ctx.fillRect(440, 490, 20, 10); 
+    </script>
+</body>
+</html>
