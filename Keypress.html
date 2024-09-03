@@ -47,7 +47,7 @@ class Rectangulo{
 }
 var player= new Rectangulo ("red",30,30,100,100,5);
 var target= new Rectangulo ("black",10,10,200,200,null);
-//var wall = new Rectangulo("gray", 300, 15, 150, 350, null)
+var wall = new Rectangulo("gray", 300, 15, 150, 350, null)
 
 var direccion = '';
 var speed =5;
@@ -103,7 +103,7 @@ function update() {
         target.x=Math.floor(Math.random()*500)
         target.y=Math.floor(Math.random()*500)
     }
-    /*console.log(player.colision(wall))
+    console.log(player.colision(wall))
     if (player.colision(wall)){
         switch(direccion){
             case 'up':
@@ -119,7 +119,7 @@ function update() {
                 player.x+=speed;
             break;
         }
-    }*/
+    }
 }
 function paint() {
     ctx.clearRect(0, 0, 600, 500);
@@ -139,8 +139,8 @@ function paint() {
     ctx.fillRect(target.x, target.y, target.w, target.h)
     //ctx.strokeRect(target.x, target.y, target.w, target.h)
 
-    //ctx.fillStyle= wall.color;
-    //ctx.fillRect(wall.x, wall.y, wall.w, wall.h)
+    ctx.fillStyle= wall.color;
+    ctx.fillRect(wall.x, wall.y, wall.w, wall.h)
     //ctx.strokeRect(wall.x, wall.y, wall.w, wall.h)
     update();
     requestAnimationFrame(paint); 
